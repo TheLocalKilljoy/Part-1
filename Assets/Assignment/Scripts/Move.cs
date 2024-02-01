@@ -9,12 +9,12 @@ public class Move : MonoBehaviour
 
     float speed = 3f;
 
-    Rigidbody2D rb2d;
+    Rigidbody2D playerRB;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        playerRB = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -25,10 +25,5 @@ public class Move : MonoBehaviour
 
         vt = Input.GetAxis("Vertical");
         transform.Translate(0, vt * speed * Time.deltaTime, 0);
-    }
-
-    private void FixedUpdate()
-    {
-        rb2d.AddForce(-transform.up / 10, ForceMode2D.Force);
     }
 }
